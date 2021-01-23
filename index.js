@@ -3,6 +3,7 @@ const bodyParser = require('body-parser')
 const mongoose = require('mongoose')
 const cors = require('cors')
 const dotenv = require('dotenv')
+const ApiRouter = require('./apiRouter')
 dotenv.config()
 
 const port = process.env.PORT || 9090
@@ -25,6 +26,7 @@ const con = mongoose.connection
 if (!con) console.log("mongodb connection failed")
 else console.log("mongodb connection successful")
 
+app.use('/api', ApiRouter)
 app.get("/", (req, res) => {
   res.send("Hello world")
 })

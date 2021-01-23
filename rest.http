@@ -1,7 +1,26 @@
 GET http://localhost:9090
 
-## GET all categories
-GET http://localhost:9090/list
+### GET all categories
+GET http://localhost:9090/api/category
 
 
+### POST create category
+POST http://localhost:9090/api/category
+Content-Type: application/json
+
+{
+  "name": "Edebiyat"
+}
+
+### PUT update category
+PUT http://localhost:9090/api/category/600c29b14af4d132cba2e4f6
+Content-Type: application/json
+
+{
+  "name": "Güncel Drama"
+}
+
+### DELETE update category
+DELETE http://localhost:9090/api/category/600c29b14af4d132cba2e4f6
+Content-Type: application/json
 

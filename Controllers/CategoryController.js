@@ -1,4 +1,3 @@
-const { config } = require('dotenv/types')
 const Category = require('../Models/Category.Model')
 const Response = require('../response')
 
