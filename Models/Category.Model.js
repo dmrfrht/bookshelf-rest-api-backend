@@ -1,15 +1,13 @@
 const mongoose = require('mongoose')
 
-const categorySchema = new mongoose.Schema({
+const categorySchema = mongoose.Schema({
   name: {
     type: String,
     required: true
   },
   createdAt: {
     type: Date,
-    default: () => {
-      return new Date()
-    }
+    default: () => new Date()
   }
 })
 
