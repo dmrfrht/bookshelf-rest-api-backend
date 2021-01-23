@@ -19,6 +19,7 @@ mongoose.connect(dbcon, {
   useCreateIndex: true,
   useFindAndModify: true
 })
+
 const con = mongoose.connection
 
 if (!con) console.log("mongodb connection failed")
