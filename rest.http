@@ -1,1 +1,7 @@
 GET http://localhost:9090
+
+## GET all categories
+GET http://localhost:9090/list
+
+
+

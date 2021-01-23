@@ -46,3 +46,5 @@ class response {
     })
   }
 }
+
+module.exports = response
