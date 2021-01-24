@@ -12,7 +12,7 @@ POST http://localhost:9090/api/category
 Content-Type: application/json
 
 {
-  "name": "Edebiyat"
+  "name": ""
 }
 
 ### PUT update category
@@ -20,7 +20,7 @@ PUT http://localhost:9090/api/category/600c29f74af4d132cba2e4f7
 Content-Type: application/json
 
 {
-  "name": "Bilgisayar Bilimleri"
+  "name": ""
 }
 
 ### DELETE delete category
