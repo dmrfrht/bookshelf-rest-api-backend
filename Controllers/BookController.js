@@ -1,6 +1,10 @@
 const Book = require('../Models/Book.Model')
 const Response = require('../response')
 const { validationResult } = require('express-validator')
+const multer = require('multer')
+const path = require('path')
+
+let bookFileName = null
 
 exports.list = (req, res) => {
   Book.find({}).sort({ createdAt: -1 }).populate("categoryBy").exec((err, books) => {
@@ -84,5 +88,29 @@ exports.delete = (req, res) => {
   })
 }
 
+/** Upload Image */
+let myStoreage = multer.diskStorage({
+  destination: function (req, file, cb) {
+    // const error = file.mimetype === "image/jpeg" ? null : new Error("yanlış uzantı")
 
+    cb(null, "./uploads")
+  },
+  filename: function (req, file, cb) {
+    bookFileName = Date.now() + path.extname(file.originalname)
+
+    cb(null, bookFileName)
+  }
+})
+
+exports.upload = multer({
+  storage: myStoreage
+})
+
+exports.saveImage = (req, res) => {
+  try {
+    res.status(200).json({ "status": true, "url": `http://localhost:${process.env.PORT}/${bookFileName}` })
+  } catch (err) {
+    res.status(500).send(err)
+  }
+}
 

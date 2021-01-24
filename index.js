@@ -13,6 +13,7 @@ const app = new express()
 app.use(cors())
 app.use(bodyParser.urlencoded({ extended: true }))
 app.use(bodyParser.json())
+app.use(express.static("uploads"))
 
 mongoose.connect(dbcon, {
   useNewUrlParser: true,
