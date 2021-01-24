@@ -42,8 +42,8 @@ POST http://localhost:9090/api/book
 Content-Type: application/json
 
 {
-  "title": "Kitap 1",
-  "author": "Ferhat Demir",
+  "title": "",
+  "author": "",
   "price": 40,
   "stock": 250,
   "picture": "",
@@ -53,7 +53,7 @@ Content-Type: application/json
 }
 
 ### PUT update book
-PUT http://localhost:9090/api/book/600d84c816030f06eecfdd8e
+PUT http://localhost:9090/api/book/600d97dbae549d111837c3f6
 Content-Type: application/json
 
 {

@@ -1,5 +1,6 @@
 const Book = require('../Models/Book.Model')
 const Response = require('../response')
+const { validationResult } = require('express-validator')
 
 exports.list = (req, res) => {
   Book.find({}).sort({ createdAt: -1 }).populate("categoryBy").exec((err, books) => {
@@ -29,6 +30,9 @@ exports.listByCategoryId = (req, res) => {
 }
 
 exports.create = (req, res) => {
+  const errors = validationResult(req)
+  if (!errors.isEmpty()) new Response(null, errors.array()).error400(res)
+
   const { title, author, price, stock, picture, categoryBy } = req.body
   const book = new Book({
     title,
@@ -48,6 +52,9 @@ exports.create = (req, res) => {
 }
 
 exports.update = (req, res) => {
+  const errors = validationResult(req)
+  if (!errors.isEmpty()) new Response(null, errors.array()).error400(res)
+
   Book.findById(req.params.book_id, (err, book) => {
     if (err) new Response(null, err).error500(res)
     if (!book) new Response().notFound(res)
