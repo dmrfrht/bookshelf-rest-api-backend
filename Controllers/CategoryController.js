@@ -11,9 +11,10 @@ exports.list = (req, res) => {
 
 exports.getById = (req, res) => {
   Category.findById(req.params.category_id, (err, category) => {
-    if (err) new Response().notFound(res)
+    if (err) new Response().error500(res)
 
-    return new Response(category, null).success(res)
+    if (category) new Response(category, null).success(res)
+    else new Response().notFound(res)
   })
 }
 
@@ -28,7 +29,8 @@ exports.create = (req, res) => {
 
 exports.update = (req, res) => {
   Category.findById(req.params.category_id, (err, category) => {
-    if (err) new Response().notFound(res)
+    if (err) new Response(null, err).error500(res)
+    if (!category) new Response().notFound(res)
 
     category.name = req.body.name
     category.save((err) => {

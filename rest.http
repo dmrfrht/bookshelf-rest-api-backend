@@ -3,6 +3,9 @@ GET http://localhost:9090
 ### GET all categories
 GET http://localhost:9090/api/category
 
+### GET one category
+GET http://localhost:9090/api/category/600c29f74af4d132cba2e4f7
+
 
 ### POST create category
 POST http://localhost:9090/api/category
@@ -13,14 +16,64 @@ Content-Type: application/json
 }
 
 ### PUT update category
-PUT http://localhost:9090/api/category/600c29b14af4d132cba2e4f6
+PUT http://localhost:9090/api/category/600c29f74af4d132cba2e4f7
 Content-Type: application/json
 
 {
-  "name": "Güncel Drama"
+  "name": "Bilgisayar Bilimleri"
 }
 
-### DELETE update category
+### DELETE delete category
 DELETE http://localhost:9090/api/category/600c29b14af4d132cba2e4f6
 Content-Type: application/json
+
+
+############################################
+
+
+### GET all books
+GET http://localhost:9090/api/book
+
+### GET one book
+GET http://localhost:9090/api/book/600c29f74af4d132cba2e4f7
+
+### POST create book
+POST http://localhost:9090/api/book
+Content-Type: application/json
+
+{
+  "title": "Kitap 1",
+  "author": "Ferhat Demir",
+  "price": 40,
+  "stock": 250,
+  "picture": "",
+  "categoryBy": {
+    "_id": "600d97c3ae549d111837c3f5"
+  }
+}
+
+### PUT update book
+PUT http://localhost:9090/api/book/600d84c816030f06eecfdd8e
+Content-Type: application/json
+
+{
+  "title": "Yüzüklerin Efendisi",
+  "author": "Tolkein",
+  "price": 100,
+  "stock": 2500,
+  "picture": "",
+  "categoryBy": {
+    "_id": "600c29f74af4d132cba2e4f7"
+  }
+}
+
+### DELETE delete book
+DELETE http://localhost:9090/api/book/600d84f416030f06eecfdd91
+Content-Type: application/json
+
+
+### GET books with category_id
+GET http://localhost:9090/api/books/600c29f74af4d132cba2e4f7
+
+
 
