@@ -1,7 +1,5 @@
 ## Book Shelf Project Rest API [Backend]
 
-Heroku link: https://blooming-earth-11423.herokuapp.com/ 
-
 # Categories
 | Route | HTTP Verb	 | POST body	 | Description	 |
 | --- | --- | --- | --- |
